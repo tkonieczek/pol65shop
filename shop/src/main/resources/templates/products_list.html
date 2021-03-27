@@ -6,6 +6,10 @@
 </head>
 <body>
 <div th:each="product : ${allProducts}" >
+    <!-- dodać <a href> z odpowienim znacznikiem th -->
+    <!-- w efekcie tu mam dostać taki link: http://localhost:8080/products/1
+       musi byc wziety z prduct.id
+    -->
     <strong th:text="${product.name}" class="item-price"></strong>
     <div th:text="${product.price}"/>
     <div>---------------------------</div>

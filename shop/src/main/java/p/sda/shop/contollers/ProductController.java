@@ -33,7 +33,9 @@ public class ProductController {
 
     @GetMapping("/{productId}")
     public String getProductDetails(Model model, @PathVariable String productId) {
+        // oblsuzyc wyjatek jesli productId w urlu to nie będzie liczba
         int id = Integer.parseInt(productId);
+        // obsluzyc sytuacje w ktorej nie znajdziemy produktu o podanym id
         for (Product pr : products) {
             if(pr.getId() == id) {
                 model.addAttribute("product", pr);
