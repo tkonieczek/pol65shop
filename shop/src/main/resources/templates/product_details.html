@@ -5,10 +5,11 @@
     <title>Lista produktów</title>
 </head>
 <body>
-<div th:each="product : ${allProducts}" >
+<div>
+    <div>Szczegóły produktu</div>
     <strong th:text="${product.name}" class="item-price"></strong>
     <div th:text="${product.price}"/>
-    <div>---------------------------</div>
+    <div th:text="${product.description}"/>
 </div>
 </body>
 </html>
