@@ -19,9 +19,9 @@ public class ProductController {
 
     public ProductController() {
         products = new ArrayList<>();
-        products.add(new Product(1, "Kawa", "Pyszna kawa", "", 20));
-        products.add(new Product(2, "Mleko", "Kwaśne", "", 10));
-        products.add(new Product(3, "Samochod", "Zajebiszcze BMW", "", 200020));
+        products.add(new Product(1, "Kawa", "Pyszna kawa", "prod_1.png", 20));
+        products.add(new Product(2, "Mleko", "Kwaśne", "shoe_1.jpg", 10));
+        products.add(new Product(3, "Samochod", "Zajebiszcze BMW", "prod_1.png", 200020));
 
     }
 

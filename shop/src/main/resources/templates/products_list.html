@@ -5,12 +5,13 @@
     <title>Lista produktów</title>
 </head>
 <body>
+<div id="menu">
+    <span> <a th:href="@{/}" >Home</a></span>
+    <span> <a th:href="@{/products/list}">Products</a></span>
+    <span> <a href="#" >Administrator</a></span>
+</div>
 <div th:each="product : ${allProducts}" >
-    <!-- dodać <a href> z odpowienim znacznikiem th -->
-    <!-- w efekcie tu mam dostać taki link: http://localhost:8080/products/1
-       musi byc wziety z prduct.id
-    -->
-    <strong th:text="${product.name}" class="item-price"></strong>
+    <a th:href="@{/products/{id} (id=${product.id})}" th:text="${product.name}"></a>
     <div th:text="${product.price}"/>
     <div>---------------------------</div>
 </div>
