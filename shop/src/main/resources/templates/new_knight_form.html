@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nowy rycerze</title>
+</head>
+<body>
+<div th:replace="fragments :: menu"/>
+<div>
+    <form class="container" th:action="@{/newknight}" method="post"
+          th:object="${knight}">
+        <div>
+            <label>Name:</label>
+            <input id="fName" type="text" th:field="*{name}"/>
+        </div>
+        <div>
+            <label>Weapon:</label>
+            <input id="lWeapon" type="text" th:field="*{weapon}"/>
+        </div>
+        <input type="submit"/>
+    </form>
+</div>
+</body>
+</html>
