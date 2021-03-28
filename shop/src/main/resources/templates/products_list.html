@@ -5,11 +5,7 @@
     <title>Lista produktów</title>
 </head>
 <body>
-<div id="menu">
-    <span> <a th:href="@{/}" >Home</a></span>
-    <span> <a th:href="@{/products/list}">Products</a></span>
-    <span> <a href="#" >Administrator</a></span>
-</div>
+<div th:replace="fragments :: menu"/>
 <div th:each="product : ${allProducts}" >
     <a th:href="@{/products/{id} (id=${product.id})}" th:text="${product.name}"></a>
     <div th:text="${product.price}"/>

@@ -5,11 +5,7 @@
     <title>Lista produktów</title>
 </head>
 <body>
-<div id="menu">
-    <span> <a th:href="@{/}" >Home</a></span>
-    <span> <a th:href="@{/products/list}">Products</a></span>
-    <span> <a href="#" >Administrator</a></span>
-</div>
+<div th:replace="fragments :: menu"/>
 <div style="font-size: 50px">
    To jest piękna strona glowna
 </div>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Fragments</title>
+</head>
+<body>
+    <div th:fragment="menu">
+        <div id="menu">
+            <span> <a th:href="@{/}" >Home</a></span>
+            <span> <a th:href="@{/products/list}">Products</a></span>
+            <span> <a href="#" >Administrator</a></span>
+        </div>
+    </div>
+</body>
+</html>
