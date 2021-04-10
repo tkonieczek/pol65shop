@@ -2,10 +2,8 @@ package p.sda.shop.contollers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import p.sda.shop.model.Knight;
 import p.sda.shop.model.Product;
 
 import java.util.ArrayList;
@@ -16,12 +14,12 @@ import java.util.List;
 public class ProductController {
 
     List<Product> products = new ArrayList<>();
-
+    //List<CartItem> cartItems
     public ProductController() {
         products = new ArrayList<>();
-        products.add(new Product(1, "Kawa", "Pyszna kawa", "prod_1.png", 20));
-        products.add(new Product(2, "Mleko", "Kwaśne", "shoe_1.jpg", 10));
-        products.add(new Product(3, "Samochod", "Zajebiszcze BMW", "prod_1.png", 200020));
+        products.add(new Product("Kawa", "Pyszna kawa", "prod_1.png", 20));
+        products.add(new Product("Mleko", "Kwaśne", "shoe_1.jpg", 10));
+        products.add(new Product("Samochod", "Zajebiszcze BMW", "prod_1.png", 200020));
 
     }
 
@@ -42,6 +40,19 @@ public class ProductController {
             }
         }
         return "product_details";
+    }
+
+    @GetMapping("/newproduct")
+    public String getProductForm(Model model) {
+        model.addAttribute("product", new Product());
+        return "new_product_form";
+    }
+
+    @PostMapping("/newproduct")
+    public String addNewProduct(Product product) {
+        product.setId(Product.ID_GENERATOR++);
+        products.add(product);
+        return "redirect:/products/list";
     }
 
 }

@@ -2,6 +2,7 @@ package p.sda.shop.model;
 
 public class Product {
 
+    public static int ID_GENERATOR = 0;
     private int id;
     private String name;
     private String description;
@@ -9,10 +10,13 @@ public class Product {
     private int price;
 
     public Product() {
+        this.id = ID_GENERATOR;
+        ID_GENERATOR++;
     }
 
-    public Product(int id, String name, String description, String image, int price) {
-        this.id = id;
+    public Product(String name, String description, String image, int price) {
+        this.id = ID_GENERATOR;
+        ID_GENERATOR++;
         this.name = name;
         this.description = description;
         this.image = image;
