@@ -2,24 +2,24 @@ package p.sda.shop.model;
 
 public class CartItem {
 
-    private String productId;
+    private int productId;
     private String productName;
-    private String productQuantity;
+    private int productQuantity;
 
     public CartItem() {
     }
 
-    public CartItem(String productId, String productName, String productQuantity) {
+    public CartItem(int productId, String productName, int productQuantity) {
         this.productId = productId;
         this.productName = productName;
         this.productQuantity = productQuantity;
     }
 
-    public String getProductId() {
+    public int getProductId() {
         return productId;
     }
 
-    public void setProductId(String productId) {
+    public void setProductId(int productId) {
         this.productId = productId;
     }
 
@@ -31,11 +31,11 @@ public class CartItem {
         this.productName = productName;
     }
 
-    public String getProductQuantity() {
+    public int getProductQuantity() {
         return productQuantity;
     }
 
-    public void setProductQuantity(String productQuantity) {
+    public void setProductQuantity(int productQuantity) {
         this.productQuantity = productQuantity;
     }
 }

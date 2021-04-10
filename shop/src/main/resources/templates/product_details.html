@@ -11,12 +11,21 @@
     <strong th:text="${product.name}" class="item-price"></strong>
     <div th:text="${product.price}"/>
     <div th:text="${product.description}"/>
+
+<!--    <form class="container" th:action="@{/cart/add}" method="post"
+          th:object="${cartItem}">
+        <label>Ilość</label>
+        <input id="quantity" type="text" th:field="*{productQuantity}"/>
+        <input type="hidden" th:value="${product.name}" th:attr="name='productName'"/>
+        <input type="hidden" th:value="${product.id}" th:attr="name='productId'"/>
+        <input type="submit" value="Add to cart"/>
+    </form>-->
     <img th:src="@{/images/{image} (image=${product.image})}" alt="Image" class="img-fluid">
     <form class="container" th:action="@{/cart/add}" method="post"
           th:object="${cartItem}">
         <label>Ilość</label>
         <input id="quantity" type="text" th:field="*{productQuantity}"/>
-        <input id="productName" type="hidden" th:field="*{productName}"/>
+        <input id="productName"  type="hidden" th:field="*{productName}"/>
         <input id="productId" type="hidden" th:field="*{productId}"/>
         <input type="submit" value="Add to cart"/>
     </form>

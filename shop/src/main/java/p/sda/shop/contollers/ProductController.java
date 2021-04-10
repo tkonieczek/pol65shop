@@ -38,7 +38,10 @@ public class ProductController {
         for (Product pr : products) {
             if(pr.getId() == id) {
                 model.addAttribute("product", pr);
-                model.addAttribute("cartItem", new CartItem());
+                CartItem o = new CartItem();
+                o.setProductName(pr.getName());
+                o.setProductId(pr.getId());
+                model.addAttribute("cartItem", o);
             }
         }
         return "product_details";
