@@ -12,9 +12,13 @@
     <div th:text="${product.price}"/>
     <div th:text="${product.description}"/>
     <img th:src="@{/images/{image} (image=${product.image})}" alt="Image" class="img-fluid">
-    <form>
-        pierwsza rzecz to id produktu
-        input z iloscia produktow
+    <form class="container" th:action="@{/cart/add}" method="post"
+          th:object="${cartItem}">
+        <label>Ilość</label>
+        <input id="quantity" type="text" th:field="*{productQuantity}"/>
+        <input id="productName" type="hidden" th:field="*{productName}"/>
+        <input id="productId" type="hidden" th:field="*{productId}"/>
+        <input type="submit" value="Add to cart"/>
     </form>
 
 </div>

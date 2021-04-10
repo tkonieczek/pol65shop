@@ -3,6 +3,7 @@ package p.sda.shop.contollers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import p.sda.shop.model.CartItem;
 import p.sda.shop.model.Knight;
 import p.sda.shop.model.Product;
 
@@ -37,6 +38,7 @@ public class ProductController {
         for (Product pr : products) {
             if(pr.getId() == id) {
                 model.addAttribute("product", pr);
+                model.addAttribute("cartItem", new CartItem());
             }
         }
         return "product_details";
