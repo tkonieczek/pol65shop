@@ -1,5 +1,6 @@
 package p.sda.shop.contollers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,10 +16,8 @@ import java.util.List;
 @RequestMapping("/cart")
 public class CartController {
 
+    @Autowired
     Cart cart;
-
-    public CartController() {
-    }
 
     @GetMapping("/list")
     public String getCartItems(Model model) {
@@ -26,6 +25,7 @@ public class CartController {
         return "cart";
     }
 
+    //TODO dokonczyc dowawanie do koszyka
     @PostMapping("/add")
     public String addProductToCart(CartItem cartItem) {
         //cart.add(cartItem.get)

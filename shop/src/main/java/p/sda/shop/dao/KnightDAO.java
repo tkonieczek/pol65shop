@@ -1,5 +1,6 @@
 package p.sda.shop.dao;
 
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import p.sda.shop.model.Knight;
@@ -12,7 +13,7 @@ public class KnightDAO {
     JdbcTemplate jdbcTemplate;
 
     public List<Knight> getAllKnight() {
-        jdbcTemplate.
+       // jdbcTemplate.
 
         return null;
     }

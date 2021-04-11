@@ -8,8 +8,9 @@ import org.springframework.web.context.WebApplicationContext;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
-Na pracę domową dokończyć klasę Cart tak aby działała sensownie tzn.
+
+//TODO
+/* Na pracę domową dokończyć klasę Cart tak aby działała sensownie tzn.
 Do kosza możemy dodać 1 produkt, potem dodać jeszcze raz ten sam produkt i to zwiększy
 ilość o 1, dodać inny produkt, dodać kilka innych lub tych samych produktów.
  */

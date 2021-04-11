@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.*;
 import p.sda.shop.model.CartItem;
 import p.sda.shop.model.Knight;
 import p.sda.shop.model.Product;
+import p.sda.shop.services.ProductService;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,27 +16,26 @@ import java.util.List;
 @RequestMapping("/products")
 public class ProductController {
 
-    List<Product> products = new ArrayList<>();
-    //List<CartItem> cartItems
-    public ProductController() {
-        products = new ArrayList<>();
-        products.add(new Product("Kawa", "Pyszna kawa", "prod_1.png", 20));
-        products.add(new Product("Mleko", "Kwaśne", "shoe_1.jpg", 10));
-        products.add(new Product("Samochod", "Zajebiszcze BMW", "prod_1.png", 200020));
+    private ProductService productService;
 
+    public ProductController(ProductService productService) {
+        this.productService = productService;
     }
 
     @GetMapping("/list")
     public String getProducts(Model model) {
-        model.addAttribute("allProducts", products);
+        List<Product> allProducts = productService.getAllProducts();
+        model.addAttribute("allProducts", allProducts);
         return "products_list";
     }
 
+    //TODO analigicznie jak lista zrobic pobieranie jednego produktu z bazy przy pomocy ProducService i product DAO
     @GetMapping("/{productId}")
     public String getProductDetails(Model model, @PathVariable String productId) {
         // oblsuzyc wyjatek jesli productId w urlu to nie będzie liczba
         int id = Integer.parseInt(productId);
         // obsluzyc sytuacje w ktorej nie znajdziemy produktu o podanym id
+        List<Product> products = productService.getAllProducts();
         for (Product pr : products) {
             if(pr.getId() == id) {
                 model.addAttribute("product", pr);
@@ -53,11 +54,13 @@ public class ProductController {
         return "new_product_form";
     }
 
+    //TODO analigicznie jak lista zrobic dodawanie jednego produktu z bazy przy pomocy ProducService i product DAO
     @PostMapping("/newproduct")
     public String addNewProduct(Product product) {
-        product.setId(Product.ID_GENERATOR++);
-        products.add(product);
+        productService.addNewProduct(product);
         return "redirect:/products/list";
     }
+
+    //TODO analigicznie jak lista zrobic usuwanie jednego produktu z bazy przy pomocy ProducService i product DAO
 
 }

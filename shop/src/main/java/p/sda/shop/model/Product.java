@@ -1,5 +1,6 @@
 package p.sda.shop.model;
 
+//TODO dodać adnotacje JPA/Hibernate
 public class Product {
 
     public static int ID_GENERATOR = 0;
