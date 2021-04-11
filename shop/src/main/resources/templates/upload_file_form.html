@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>ShopMax &mdash; Colorlib e-Commerce Template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <div th:replace="fragments :: style"/>
+  </head>
+  <body>
+  
+  <div class="site-wrap">
+
+    <div th:replace="fragments :: menu"/>
+
+    <form method="POST" th:action="@{/uploadFile}" enctype="multipart/form-data"   th:object="${uploadInfo}">
+      <div>
+        <label class="text-black">Nazwa<span class="text-danger">*</span></label>
+        <input type="text" class="form-control" id="c_name" th:field="*{name}">
+      </div>
+      <div>
+        <label>Nazwa<span class="text-danger">*</span></label>
+        <input type="text"  id="c_age" th:field="*{age}">
+      </div>
+      <input type="file" name="file"/> <br/><br/>
+      <button type="submit">Submit</button>
+    </form>
+
+    <div th:replace="fragments :: footer"/>
+  </div>
+  <div th:replace="fragments :: js_scripts"/>
+  </body>
+</html>

@@ -15,23 +15,21 @@ import java.util.List;
 @RequestMapping("/cart")
 public class CartController {
 
-   // List<CartItem> items;
     Cart cart;
 
     public CartController() {
-        items = new ArrayList<>();
-        items.add(new CartItem(1,"Wodka", 5));
     }
 
     @GetMapping("/list")
     public String getCartItems(Model model) {
-        model.addAttribute("allItems", items);
+        model.addAttribute("allItems", cart.getItems());
         return "cart";
     }
 
     @PostMapping("/add")
     public String addProductToCart(CartItem cartItem) {
-        items.add(cartItem);
+        //cart.add(cartItem.get)
+        // na pracę domową obowiązkowo
         return "redirect:/products/" + cartItem.getProductId();
     }
 }
