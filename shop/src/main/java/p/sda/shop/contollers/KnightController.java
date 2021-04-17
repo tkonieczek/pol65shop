@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import p.sda.shop.model.Knight;
 import p.sda.shop.services.KnightService;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -27,7 +28,7 @@ public class KnightController {
     }
 
     @GetMapping("/newknight")
-    public String getNewKnightForm(Model model) {
+    public String getNewKnightForm(Model model, HttpServletRequest request) {
         model.addAttribute("knight", new Knight());
         return "new_knight_form";
     }

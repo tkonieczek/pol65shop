@@ -3,10 +3,19 @@ INSERT INTO users(username,password,enabled) VALUES ('mariola','$2a$10$9kHiP/C5l
 INSERT INTO users(username,password,enabled) VALUES ('admin','$2a$10$LVDzLapcfjvVfa04ZNhVcOcUEyL57.sEV/KddKIdQioWm61YmRZMG', true);
 
 
+
+
+INSERT INTO users(username,password,enabled) VALUES ('marian1','{noop}marian1234', true);
+
 INSERT INTO authorities (username, authority) VALUES ('marian', 'USER');
+INSERT INTO authorities (username, authority) VALUES ('marian1', 'USER');
 INSERT INTO authorities (username, authority) VALUES ('mariola', 'USER');
 INSERT INTO authorities (username, authority) VALUES ('admin', 'USER');
 INSERT INTO authorities (username, authority) VALUES ('admin', 'ADMIN');
+
+
+
+
 
 INSERT INTO products (name, description, image, price) VALUES ('Gray Shoe', 'Gray Shoe description', 'prod_2.png', 20.0);
 INSERT INTO products (name, description, image, price) VALUES ('Blue Shoe High Heels', 'Blue Shoe High Heels description', 'prod_3.png', 15.0);
